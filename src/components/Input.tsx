@@ -17,6 +17,7 @@ function Input({ onChange, autoCompleteItems, onSelectItem }: InputProps) {
           type='text'
           className='input'
           value={name}
+          placeholder='Enter the name of a TV series...'
           onChange={(e) => {
             setName(e.target.value);
             onChange(e.target.value);
