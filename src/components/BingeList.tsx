@@ -1,22 +1,18 @@
 import React from 'react';
-
-interface BingeItem {
-  id: number;
-  poster_url: string;
-}
+import BingeCard from './BingeCard';
+import BingeItem from '../models/bingeItem';
 
 interface BingeListProps {
   items: BingeItem[];
+  onRemoveItem: (id: number) => void;
 }
 
-function BingeList({ items }: BingeListProps) {
+function BingeList({ items, onRemoveItem }: BingeListProps) {
   return (
     <div className='container'>
       <div className='row binge-items-container'>
-        {items.map(({ id, poster_url }) => (
-          <div key={id} className='col-sm binge-item'>
-            <img src={poster_url} className='binge-item-poster' />
-          </div>
+        {items.map((item) => (
+          <BingeCard item={item} onRemove={onRemoveItem} />
         ))}
       </div>
     </div>
