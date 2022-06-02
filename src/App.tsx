@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import BingeList from './components/BingeList';
+import BingeTime from './components/BingeTime';
 import Input from './components/Input';
 import AutoCompleteItem from './models/autoCompleteItem';
 import BingeItem from './models/bingeItem';
@@ -11,6 +12,7 @@ import tvService from './services/tv';
 function App() {
   const [bingeItems, setBingeItems] = useState<BingeItem[]>([]);
   const [autocompleteItems, setAutoCompleteItems] = useState<SearchItem[]>([]);
+  const [bingeTime, setBingeTime] = useState(0);
 
   const handleInputChange = async (text: string) => {
     if (!text) return setAutoCompleteItems([]);
@@ -39,6 +41,7 @@ function App() {
   return (
     <div className='App'>
       <div className='container'>
+        <BingeTime totalMinutes={bingeTime} />
         <Input
           onChange={handleInputChange}
           onSelectItem={handleAutocompleteSelect}
