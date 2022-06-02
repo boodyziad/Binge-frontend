@@ -2,21 +2,22 @@
   --background-color: #121316;
   --primary: #dfd816;
   --secondary: #ef2917;
+  --tertiary: white;
 }
 
 body {
-  background-color: #121316;
+  background-color: var(--background-color);
 }
 
 .input-container {
+  align-items: center;
   display: flex;
   border-bottom-style: solid;
   border-color: var(--primary);
   border-width: 3px;
+  flex-direction: column;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  justify-content: center;
 }
 
 .input {
@@ -26,9 +27,82 @@ body {
   font-size: 2rem;
   font-weight: bold;
   height: 3rem;
+  padding-left: 0.5rem;
   width: 100%;
 }
 
 .input:focus {
   outline: none;
+}
+
+.autocomplete {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.autocomplete-item {
+  cursor: pointer;
+  overflow: hidden;
+  height: 5rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.autocomplete-item:hover {
+  transform: scale(1.009);
+}
+
+.autocomplete-backdrop {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.autocomplete-body {
+  bottom: 2.5rem;
+  left: 0.5rem;
+  position: relative;
+}
+
+.autocomplete-title {
+  color: var(--tertiary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-right: 2rem;
+
+  /* Limit title to one line */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .autocomplete-item {
+    height: 7rem;
+  }
+
+  .autocomplete-title {
+    font-size: 1.8rem;
+  }
+
+  .autocomplete-body {
+    bottom: 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .autocomplete-item {
+    height: 7rem;
+  }
+
+  .autocomplete-title {
+    font-size: 2rem;
+  }
+
+  .autocomplete-body {
+    bottom: 3.5rem;
+  }
 }
