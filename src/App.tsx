@@ -20,7 +20,7 @@ function App() {
     setAutoCompleteItems(movies);
   };
 
-  const handleAutocompleteSelect = (id: number) => {
+  const handleAutocompleteSelect = async (id: number) => {
     const autocompleteItem = autocompleteItems.find(
       (item) => item.id === id
     ) as SearchItem;
@@ -30,12 +30,15 @@ function App() {
     };
 
     setAutoCompleteItems([]);
-    if (!bingeItems.find((item) => item.id === id))
+    if (!bingeItems.find((item) => item.id === id)) {
+      setBingeTime(bingeTime + (await tvService.getTotalShowRuntime(id)));
       setBingeItems([...bingeItems, newBingeItem]);
+    }
   };
 
-  const handleRemoveBingeItem = (id: number) => {
+  const handleRemoveBingeItem = async (id: number) => {
     setBingeItems(bingeItems.filter((item) => item.id !== id));
+    setBingeTime(bingeTime - (await tvService.getTotalShowRuntime(id)));
   };
 
   return (
