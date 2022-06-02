@@ -1,4 +1,5 @@
 import './App.css';
+import BingeList from './components/BingeList';
 import Input from './components/Input';
 
 function App() {
@@ -34,6 +35,25 @@ function App() {
               title: "Marvel's The Defenders",
               backdrop_url:
                 'https://image.tmdb.org/t/p/original/n4XLn0wLCxWSFaQgG6queZlFPKi.jpg',
+            },
+          ]}
+        />
+        <BingeList
+          items={[
+            {
+              id: 1,
+              poster_url:
+                'https://image.tmdb.org/t/p/original/QWbPaDxiB6LW2LjASknzYBvjMj.jpg',
+            },
+            {
+              id: 2,
+              poster_url:
+                'https://image.tmdb.org/t/p/original/1ghmaDw650NuUpGI7mYq6xE2QE2.jpg',
+            },
+            {
+              id: 3,
+              poster_url:
+                'https://image.tmdb.org/t/p/original/49XzINhH4LFsgz7cx6TOPcHUJUL.jpg',
             },
           ]}
         />
