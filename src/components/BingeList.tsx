@@ -12,7 +12,7 @@ function BingeList({ items, onRemoveItem }: BingeListProps) {
     <div className='container'>
       <div className='row binge-items-container'>
         {items.map((item) => (
-          <BingeCard item={item} onRemove={onRemoveItem} />
+          <BingeCard key={item.id} item={item} onRemove={onRemoveItem} />
         ))}
       </div>
     </div>
